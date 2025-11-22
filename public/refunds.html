@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPerfect | Sales and Refunds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-black text-white antialiased" data-barba="wrapper">
+    <div class="cursor"></div>
+    <div class="scroll-progress"></div>
+    <div class="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="home.html"
+                        class="font-semibold text-lg tracking-tight text-white hover:text-gray-300 transition-colors">PixelPerfect</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="home.html" class="text-xs text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="text-xs text-gray-300 hover:text-white transition-colors">About</a>
+                        <a href="services.html"
+                            class="text-xs text-gray-300 hover:text-white transition-colors">Services</a>
+                        <a href="contact.html"
+                            class="text-xs text-gray-300 hover:text-white transition-colors">Contact</a>
+                        <a href="signup.html"
+                            class="text-xs bg-white text-black px-3 py-1 rounded-full hover:bg-gray-200 transition-colors">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main data-barba="container" data-barba-namespace="refunds">
+        <section class="pt-40 pb-20 px-6 relative overflow-hidden">
+            <div class="blob" style="width: 400px; height: 400px; background: white; top: 5%; right: 5%; animation-delay: 2s;"></div>
+            
+            <div class="max-w-4xl mx-auto reveal relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Sales & Refunds</h1>
+                <p class="text-gray-400 mb-8">Last updated: November 21, 2024</p>
+
+                <div class="space-y-8 text-gray-300 leading-relaxed">
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">1. Payment Structure</h2>
+                        <p class="mb-4">Our standard payment structure is as follows:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong>50% Deposit:</strong> Required before work begins</li>
+                            <li><strong>50% Final Payment:</strong> Due upon project completion and before final delivery</li>
+                            <li>Custom payment plans available for projects over $10,000</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">2. Accepted Payment Methods</h2>
+                        <p class="mb-4">We accept the following payment methods:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Credit/Debit Cards (Visa, Mastercard, American Express)</li>
+                            <li>PayPal</li>
+                            <li>Bank Transfer (Wire Transfer)</li>
+                            <li>Cryptocurrency (for projects over $5,000)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">3. Refund Policy</h2>
+                        <p class="mb-4">We stand behind the quality of our work. Our refund policy is as follows:</p>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Deposit Refunds</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong>Before work begins:</strong> 100% refund minus processing fees</li>
+                            <li><strong>Within first week:</strong> 75% refund if no substantial work completed</li>
+                            <li><strong>After work begins:</strong> Deposits are non-refundable</li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Final Payment Refunds</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong>Before delivery:</strong> Full refund if project not delivered</li>
+                            <li><strong>After delivery:</strong> Refunds considered on case-by-case basis</li>
+                            <li><strong>Quality issues:</strong> We'll fix issues at no charge or provide partial refund</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">4. Cancellation Policy</h2>
+                        <p class="mb-4">Either party may cancel the project with written notice:</p>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Client Cancellation</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Client pays for all work completed to date</li>
+                            <li>Hourly rate applied based on package pricing</li>
+                            <li>Deposit is non-refundable after work begins</li>
+                            <li>Client receives all work completed up to cancellation date</li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">PixelPerfect Cancellation</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Full refund of all payments made</li>
+                            <li>Client retains all work completed</li>
+                            <li>Rare circumstances only (scope creep, unprofessional behavior, etc.)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">5. Revision Policy</h2>
+                        <p class="mb-4">Each package includes a set number of revision rounds:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong>Identity Package:</strong> 2 revision rounds</li>
+                            <li><strong>Business Package:</strong> 3 revision rounds</li>
+                            <li><strong>Commerce Package:</strong> 4 revision rounds</li>
+                            <li>Additional revisions: $150/hour</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">6. Scope Changes</h2>
+                        <p>Changes to the original project scope will be quoted separately. Significant scope changes may require:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                            <li>Additional payment before proceeding</li>
+                            <li>Revised timeline and delivery date</li>
+                            <li>New contract or amendment to existing contract</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">7. Late Payment</h2>
+                        <p class="mb-4">Late payments are subject to the following:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>5% late fee after 7 days</li>
+                            <li>Additional 5% fee every 7 days thereafter</li>
+                            <li>Work may be paused until payment is received</li>
+                            <li>Final deliverables withheld until full payment</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">8. Satisfaction Guarantee</h2>
+                        <p>We're committed to your satisfaction. If you're not happy with the final product:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                            <li>We'll work with you to address concerns</li>
+                            <li>Additional revisions at no charge (within reason)</li>
+                            <li>Partial refund if we can't meet your expectations</li>
+                            <li>Full refund in cases of gross negligence or failure to deliver</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">9. Refund Process</h2>
+                        <p class="mb-4">To request a refund:</p>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Contact us via email or contact form</li>
+                            <li>Provide detailed reason for refund request</li>
+                            <li>We'll review within 3-5 business days</li>
+                            <li>Approved refunds processed within 7-10 business days</li>
+                            <li>Refunds issued to original payment method</li>
+                        </ol>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">10. Disputes</h2>
+                        <p>In case of disputes regarding payment or refunds:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                            <li>Contact us first to resolve amicably</li>
+                            <li>Mediation available through neutral third party</li>
+                            <li>Arbitration as final resort</li>
+                            <li>Legal action governed by our Terms of Use</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">11. Contact for Sales & Refunds</h2>
+                        <p>For questions about payments, refunds, or billing:</p>
+                        <p class="mt-4">
+                            <a href="contact.html" class="text-white hover:underline">Contact Form</a><br>
+                            Email: billing@example.com<br>
+                            Phone: +1 (555) 000-0000
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 border-t border-zinc-900">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="font-semibold text-white">PixelPerfect</span>
+                    <span class="text-gray-600 text-sm ml-4">Copyright © 2024</span>
+                </div>
+                <div class="flex space-x-6 text-sm text-gray-500">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="refunds.html" class="hover:text-white transition-colors">Sales and Refunds</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/transitions.js"></script>
+</body>
+
+</html>

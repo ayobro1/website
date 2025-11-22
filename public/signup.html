@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPerfect | Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'apple-gray': '#1d1d1f',
+                        'apple-light': '#f5f5f7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-black text-white antialiased" data-barba="wrapper">
+    <div class="cursor"></div>
+    <div class="scroll-progress"></div>
+    <div class="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="home.html"
+                        class="font-semibold text-lg tracking-tight text-white hover:text-gray-300 transition-colors">PixelPerfect</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="home.html" class="text-xs text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="text-xs text-gray-300 hover:text-white transition-colors">About</a>
+                        <a href="services.html"
+                            class="text-xs text-gray-300 hover:text-white transition-colors">Services</a>
+                        <a href="contact.html"
+                            class="text-xs text-gray-300 hover:text-white transition-colors">Contact</a>
+                        <a href="signup.html"
+                            class="text-xs bg-white text-black px-3 py-1 rounded-full hover:bg-gray-200 transition-colors">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main data-barba="container" data-barba-namespace="signup">
+        <section class="pt-40 pb-20 px-6 relative overflow-hidden">
+            <!-- Fluid morphing elements -->
+            <div class="blob" style="width: 450px; height: 450px; background: white; top: 0; left: 5%; animation-delay: 1s;"></div>
+            <div class="blob" style="width: 350px; height: 350px; background: white; top: 50%; right: 10%; animation-delay: 3s;"></div>
+            
+            <div class="max-w-3xl mx-auto text-center reveal relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Join us.</h1>
+                <p class="text-xl text-gray-400">Create your account and get started.</p>
+            </div>
+        </section>
+
+        <section class="pb-32 px-4 md:px-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bento-card p-8 md:p-12 reveal">
+                    <form id="signupForm" class="space-y-8">
+                        <div id="formStatus" class="hidden p-4 rounded-lg text-center font-medium"></div>
+
+                        <div class="space-y-2">
+                            <label for="fullname" class="text-sm font-medium text-gray-400 ml-1">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" required
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors"
+                                placeholder="John Doe">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="username" class="text-sm font-medium text-gray-400 ml-1">Username</label>
+                            <input type="text" id="username" name="username" required
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors"
+                                placeholder="johndoe">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="email" class="text-sm font-medium text-gray-400 ml-1">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors"
+                                placeholder="john@example.com">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="password" class="text-sm font-medium text-gray-400 ml-1">Password</label>
+                            <input type="password" id="password" name="password" required minlength="6"
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors"
+                                placeholder="••••••••">
+                            <p class="text-xs text-gray-500 ml-1">Minimum 6 characters</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="confirmPassword" class="text-sm font-medium text-gray-400 ml-1">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6"
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors"
+                                placeholder="••••••••">
+                        </div>
+
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-all transform hover:scale-[1.01]">
+                            <span id="btnText">Create Account</span>
+                        </button>
+
+                        <p class="text-center text-sm text-gray-400">
+                            Already have an account? <a href="login.html" class="text-white hover:underline">Log in</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 border-t border-zinc-900">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="font-semibold text-white">PixelPerfect</span>
+                    <span class="text-gray-600 text-sm ml-4">Copyright © 2024</span>
+                </div>
+                <div class="flex space-x-6 text-sm text-gray-500">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="refunds.html" class="hover:text-white transition-colors">Sales and Refunds</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/transitions.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('signupForm');
+            if (form) {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const submitBtn = document.getElementById('submitBtn');
+                    const btnText = document.getElementById('btnText');
+                    const formStatus = document.getElementById('formStatus');
+
+                    const password = form.password.value;
+                    const confirmPassword = form.confirmPassword.value;
+
+                    if (password !== confirmPassword) {
+                        formStatus.className = 'p-4 rounded-lg text-center font-medium bg-red-900/20 border border-red-900/50 text-red-400';
+                        formStatus.textContent = 'Passwords do not match.';
+                        formStatus.classList.remove('hidden');
+                        return;
+                    }
+
+                    const formData = {
+                        fullname: form.fullname.value,
+                        username: form.username.value,
+                        email: form.email.value,
+                        password: password
+                    };
+
+                    submitBtn.disabled = true;
+                    btnText.textContent = 'Creating Account...';
+                    formStatus.classList.add('hidden');
+
+                    try {
+                        const response = await fetch('/api/signup', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            formStatus.className = 'p-4 rounded-lg text-center font-medium bg-green-900/20 border border-green-900/50 text-green-400';
+                            formStatus.innerHTML = 'Account created successfully! <a href="home.html" class="underline ml-2 hover:text-green-300">Go back home</a>';
+                            formStatus.classList.remove('hidden');
+                            form.reset();
+                            submitBtn.style.display = 'none';
+                        } else {
+                            throw new Error(data.message || 'Failed');
+                        }
+                    } catch (error) {
+                        formStatus.className = 'p-4 rounded-lg text-center font-medium bg-red-900/20 border border-red-900/50 text-red-400';
+                        formStatus.textContent = error.message || 'Error creating account.';
+                        formStatus.classList.remove('hidden');
+                    } finally {
+                        submitBtn.disabled = false;
+                        btnText.textContent = 'Create Account';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
