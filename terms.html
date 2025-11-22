@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPerfect | Terms of Use</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-black text-white antialiased" data-barba="wrapper">
+    <div class="cursor"></div>
+    <div class="scroll-progress"></div>
+    <div class="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="home.html"
+                        class="font-semibold text-lg tracking-tight text-white hover:text-gray-300 transition-colors">PixelPerfect</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="home.html" class="text-xs text-gray-300 hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="text-xs text-gray-300 hover:text-white transition-colors">About</a>
+                        <a href="services.html"
+                            class="text-xs text-gray-300 hover:text-white transition-colors">Services</a>
+                        <a href="contact.html"
+                            class="text-xs text-gray-300 hover:text-white transition-colors">Contact</a>
+                        <a href="signup.html"
+                            class="text-xs bg-white text-black px-3 py-1 rounded-full hover:bg-gray-200 transition-colors">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main data-barba="container" data-barba-namespace="terms">
+        <section class="pt-40 pb-20 px-6 relative overflow-hidden">
+            <div class="blob" style="width: 450px; height: 450px; background: white; top: 0; left: 10%; animation-delay: 1s;"></div>
+            
+            <div class="max-w-4xl mx-auto reveal relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Terms of Use</h1>
+                <p class="text-gray-400 mb-8">Last updated: November 21, 2024</p>
+
+                <div class="space-y-8 text-gray-300 leading-relaxed">
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">1. Acceptance of Terms</h2>
+                        <p>By accessing and using PixelPerfect's website and services, you accept and agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use our services.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">2. Services Description</h2>
+                        <p>PixelPerfect provides web design and development services, including but not limited to:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                            <li>Website design and development</li>
+                            <li>E-commerce solutions</li>
+                            <li>Custom web applications</li>
+                            <li>Maintenance and support services</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">3. User Accounts</h2>
+                        <p class="mb-4">When you create an account with us, you must provide accurate and complete information. You are responsible for:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Maintaining the security of your account</li>
+                            <li>All activities that occur under your account</li>
+                            <li>Notifying us immediately of any unauthorized use</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">4. Intellectual Property</h2>
+                        <p>All content, features, and functionality on this website are owned by PixelPerfect and are protected by international copyright, trademark, and other intellectual property laws.</p>
+                        <p class="mt-4">Upon full payment for services, you will own the final deliverables. However, PixelPerfect retains the right to showcase the work in our portfolio.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">5. Prohibited Uses</h2>
+                        <p class="mb-4">You may not use our services to:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Violate any laws or regulations</li>
+                            <li>Infringe on intellectual property rights</li>
+                            <li>Transmit harmful or malicious code</li>
+                            <li>Engage in fraudulent activities</li>
+                            <li>Harass or harm other users</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">6. Payment Terms</h2>
+                        <p>Payment terms are outlined in individual project agreements. Generally:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                            <li>50% deposit required to begin work</li>
+                            <li>Final 50% due upon project completion</li>
+                            <li>Payment accepted via bank transfer, credit card, or PayPal</li>
+                            <li>Late payments may incur additional fees</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">7. Project Timeline</h2>
+                        <p>Project timelines are estimates and may vary based on:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                            <li>Scope changes or additions</li>
+                            <li>Delayed feedback or approvals</li>
+                            <li>Technical complications</li>
+                            <li>Third-party dependencies</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">8. Limitation of Liability</h2>
+                        <p>PixelPerfect shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services. Our total liability shall not exceed the amount paid for the specific service.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">9. Termination</h2>
+                        <p>We reserve the right to terminate or suspend your account and access to our services at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users or our business.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">10. Changes to Terms</h2>
+                        <p>We reserve the right to modify these terms at any time. We will notify users of any material changes. Your continued use of our services after changes constitutes acceptance of the new terms.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">11. Governing Law</h2>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which PixelPerfect operates, without regard to its conflict of law provisions.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-4">12. Contact Information</h2>
+                        <p>For questions about these Terms of Use, please contact us at:</p>
+                        <p class="mt-4">
+                            <a href="contact.html" class="text-white hover:underline">Contact Form</a><br>
+                            Email: legal@example.com
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 border-t border-zinc-900">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="font-semibold text-white">PixelPerfect</span>
+                    <span class="text-gray-600 text-sm ml-4">Copyright © 2024</span>
+                </div>
+                <div class="flex space-x-6 text-sm text-gray-500">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="refunds.html" class="hover:text-white transition-colors">Sales and Refunds</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/transitions.js"></script>
+</body>
+
+</html>

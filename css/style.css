@@ -1,0 +1,732 @@
+/* Morphing Fluid UI + Organic Minimalism Design System */
+
+:root {
+    --bg-color: #000000;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent-glow: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --fluid-primary: #ffffff;
+    --fluid-secondary: #86868b;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    opacity: 1;
+    position: relative;
+}
+
+/* Animated fluid background */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    animation: fluid-bg 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes fluid-bg {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(5%, -5%) scale(1.1);
+    }
+    66% {
+        transform: translate(-5%, 5%) scale(0.9);
+    }
+}
+
+/* Typography */
+.text-apple-header {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.text-apple-sub {
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.text-gradient-silver {
+    background: linear-gradient(135deg, #ffffff 0%, #86868b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Organic Blob Shapes */
+.blob {
+    position: absolute;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph 8s ease-in-out infinite, float-blob 6s ease-in-out infinite;
+    filter: blur(40px);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+@keyframes morph {
+    0%, 100% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+    25% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    75% {
+        border-radius: 70% 30% 50% 50% / 30% 50% 70% 50%;
+    }
+}
+
+@keyframes float-blob {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+/* Bento Grid with Organic Shapes */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, minmax(300px, auto));
+    }
+
+    .bento-item-large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .bento-item-tall {
+        grid-row: span 2;
+    }
+
+    .bento-item-wide {
+        grid-column: span 2;
+    }
+}
+
+.bento-card {
+    background: linear-gradient(135deg, rgba(21, 21, 22, 0.8) 0%, rgba(30, 30, 32, 0.6) 100%);
+    border-radius: 40px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.bento-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    animation: rotate-gradient 10s linear infinite;
+}
+
+@keyframes rotate-gradient {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bento-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+/* Morphing blob decoration for cards */
+.bento-card::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    top: -20%;
+    right: -10%;
+    animation: morph 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Images */
+.img-desaturate {
+    filter: grayscale(100%) contrast(1.2);
+    transition: filter 0.5s ease;
+}
+
+.bento-card:hover .img-desaturate {
+    filter: grayscale(0%) contrast(1);
+}
+
+/* Liquid Morphing Cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    mix-blend-mode: difference;
+}
+
+.cursor::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor.hovered {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph-cursor 2s ease-in-out infinite;
+}
+
+.cursor.hovered::before {
+    opacity: 1;
+}
+
+@keyframes morph-cursor {
+    0%, 100% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+    50% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    width: 0%;
+    z-index: 10001;
+    /* Above cursor */
+    backdrop-filter: blur(5px);
+}
+
+/* Transitions */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    /* High but below cursor/progress */
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+/* Fluid Navigation */
+.glass-nav {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 9990;
+    position: relative;
+}
+
+.glass-nav::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: nav-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes nav-shimmer {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.glass-nav a {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-nav a:hover::after {
+    width: 80%;
+}
+
+/* Liquid Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(10px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Organic shape reveals */
+.reveal-blob {
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-blob.active {
+    clip-path: circle(150% at 50% 50%);
+}
+
+/* Marquee */
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Intro Page Specifics */
+.intro-logo {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    opacity: 0;
+}
+
+.intro-btn {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Hero enhancements */
+.hero-title {
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Parallax layers */
+.parallax-layer {
+    transition: transform 0.3s ease-out;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    position: relative;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator-dot {
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-dot 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes scroll-dot {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* Enhanced hover effects */
+a, button {
+    position: relative;
+    overflow: hidden;
+}
+
+a::after, button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+a:hover::after, button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Smooth text reveal */
+.hero-text-wrapper {
+    overflow: hidden;
+}
+
+/* Fluid buttons with morphing effect */
+button, .btn, a[class*="btn"] {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button::before, .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease, border-radius 0.6s ease;
+}
+
+button:hover::before, .btn:hover::before {
+    width: 300px;
+    height: 300px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+/* Organic input fields */
+input, textarea, select {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+input:focus, textarea:focus, select:focus {
+    transform: scale(1.02);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.05);
+}
+
+/* Liquid loading states */
+.loading-blob {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    animation: morph-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes morph-loading {
+    0%, 100% {
+        border-radius: 50%;
+        transform: scale(1);
+    }
+    25% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: scale(1.1);
+    }
+    50% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: scale(0.9);
+    }
+    75% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: scale(1.05);
+    }
+}
+
+/* Li
+quid text gradient effect */
+.text-gradient-silver {
+    background: linear-gradient(135deg, #ffffff 0%, #86868b 50%, #ffffff 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-flow 4s ease infinite;
+}
+
+@keyframes gradient-flow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Organic form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-radius: 25px;
+}
+
+/* Fluid card stacking effect */
+.bento-card {
+    transform-style: preserve-3d;
+}
+
+.bento-card:hover {
+    transform: translateY(-8px) scale(1.02) rotateX(2deg);
+}
+
+/* Organic section dividers */
+.section-divider {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.02) 100%);
+    clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+/* Morphing hover states for links */
+a {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a:hover {
+    letter-spacing: 0.05em;
+}
+
+/* Liquid loading animation */
+@keyframes liquid-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Organic shadow effects */
+.organic-shadow {
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Fluid page transitions */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 9999;
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.page-transition.active {
+    clip-path: circle(150% at 50% 50%);
+}
+
+/* Morphing button states */
+button:active,
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Organic grid patterns */
+.organic-grid {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+/* Liquid scroll indicator */
+.scroll-indicator {
+    animation: liquid-pulse 2s ease-in-out infinite;
+}
+
+/* Fluid form validation states */
+input:valid,
+textarea:valid {
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Organic hover glow */
+.hover-glow {
+    position: relative;
+}
+
+.hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.hover-glow:hover::before {
+    opacity: 1;
+}
+
+/* Morphing selection highlight */
+::selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+::-moz-selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Fluid scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
